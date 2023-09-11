@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Views.List"
+             Title="Your shopping list">
+    <StackLayout>
+        
+        
+
+        <ListView ItemsSource="{Binding GroupedItems}" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnSpacing="5" Padding="5">
+                            <!-- Define Grid Columns similar to fruit page -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <!-- For Image -->
+                                <ColumnDefinition Width="*"/>
+                                <!-- For Name -->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- For Minus Button -->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- For Quantity -->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- For Plus Button -->
+                                <ColumnDefinition Width="20"/>
+                                <!-- For Delete Button -->
+                            </Grid.ColumnDefinitions>
+                            <!-- Image -->
+                            <Image Source="{Binding ImagePath}" Grid.Column="0" HeightRequest="40" WidthRequest="40" Aspect="AspectFill" VerticalOptions="Center" />
+                            <!-- Fruit Name -->
+                            <Label Text="{Binding Name}" Grid.Column="1" VerticalOptions="CenterAndExpand" />
+                            <!-- Quantity Label -->
+                            <Label Text="{Binding Quantity}" Grid.Column="3" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+                            <!-- Delete Button -->
+                            <Button Text="X" Clicked="DeleteProduceButton_Clicked" Grid.Column="5" BackgroundColor="Red" TextColor="White" />
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

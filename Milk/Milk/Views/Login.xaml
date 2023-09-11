@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Login"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <!-- Gradient Background using BoxView -->
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="LightBlue" Offset="0.1" />
+                    <GradientStop Color="MidnightBlue" Offset="1.0" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <StackLayout Padding="40" Spacing="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Image Source="Milk.png" WidthRequest="1200" HeightRequest="400" Aspect="AspectFill"></Image>
+            <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                <Entry x:Name="usr" Placeholder="email" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+            </Frame>
+            <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                <Entry x:Name="psw" Placeholder="password" IsPassword="True" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Frame Padding="0" CornerRadius="50" HasShadow="True" HeightRequest="50" VerticalOptions="Center">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#34eb89" Offset="0.1" />
+                        <GradientStop Color="#34bdeb" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Button
+                    Text="Login"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    BackgroundColor="Transparent"
+                    Clicked="Button_Clicked"/>
+            </Frame>
+
+
+
+            <Label HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Don't have an account? " TextColor="Gray"/>
+                     <Span Text="Register" TextColor="Green" FontAttributes="Bold" TextDecorations="Underline"/>
+
+                 </FormattedString>
+            </Label.FormattedText>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </StackLayout>
+    </Grid>
+
+
+</ContentPage>

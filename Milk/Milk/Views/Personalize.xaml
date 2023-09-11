@@ -1,0 +1,27 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Milk.Views" xmlns:viewmodels="clr-namespace:Milk.ViewModels" x:DataType="viewmodels:PersonalizeViewModel"
+             x:Class="Milk.Views.Personalize"
+             Padding="20"
+             Title="Logout">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20">
+
+                <!-- Welcome message -->
+
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                    <Label Text="Goodbye," FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Username}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                
+
+
+
+                <Button Text="Logout" Clicked="LogoutClicked" BackgroundColor="#D70040" TextColor="White" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

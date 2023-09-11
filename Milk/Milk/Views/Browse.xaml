@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Views.Browse"
+             x:Name="BrowsePage" 
+             Title="Browse for groceries">
+    <ContentPage.Content>
+        <Grid Padding="20,0">
+            <CollectionView ItemsSource="{Binding Pictures}" 
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedPicture, Mode=TwoWay}"
+                            BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <Frame BackgroundColor="White" Padding="0" HasShadow="True" CornerRadius="0" Margin="5,10,5,10">
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RowTappedCommand, Source={x:Reference BrowsePage}}" 
+                                                          CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+                                <!-- Button spans the entire Grid -->
+                                <Button Grid.ColumnSpan="3" 
+                                        BackgroundColor="Transparent" 
+                                        Command="{Binding Path=BindingContext.RowTappedCommand, Source={x:Reference BrowsePage}}" 
+                                        CommandParameter="{Binding .}" />
+
+                                <!-- Image -->
+                                <Image Grid.Column="0" 
+                                       Source="{Binding Source}" 
+                                       Aspect="AspectFit" 
+                                       WidthRequest="100" 
+                                       HeightRequest="100"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                </Image>
+
+                                <!-- Text next to the image -->
+                                <Label Grid.Column="1" Text="{Binding ImageText}" VerticalOptions="Center"/>
+
+                                <!-- Navigation icon (arrow) -->
+                                <Image Grid.Column="2" 
+                                       Source="arrow2.png" 
+                                       Aspect="AspectFit" 
+                                       WidthRequest="20" 
+                                       HeightRequest="20"
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="Center">
+                                </Image>
+                            </Grid>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
