@@ -4,9 +4,73 @@
              x:Class="Milk.Views.add.MeatsPoloutrySeafood.PorkPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+        <SearchBar x:Name="searchBar" Placeholder="Search for a fruit..." TextChanged="OnSearchBarTextChanged"/>
+
+
+        <ListView x:Name="RedMeatListView" RowHeight="50">
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <ViewCell>
+
+                        <Grid ColumnSpacing="5" Padding="5">
+
+                            <!-- Define Grid Columns -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Place Elements in the Grid -->
+                            <Image Source="{Binding ImagePath}" Grid.Column="0" HeightRequest="40" WidthRequest="40" Aspect="AspectFill" VerticalOptions="Center" />
+
+                            <Label Text="{Binding Name}" Grid.Column="1" VerticalOptions="CenterAndExpand" FontSize="Small" />
+
+                            <Button Text="-" 
+                             Clicked="MinusButton_Clicked" 
+                             Grid.Column="2" 
+                             FontSize="11" 
+                             FontAttributes="Bold"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             HeightRequest="30" 
+                             WidthRequest="30"/>
+
+                            <Label Text="{Binding Quantity}" Grid.Column="4" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Small"/>
+
+                            <Button Text="+" 
+                             Clicked="PlusButton_Clicked" 
+                             Grid.Column="3" 
+                             FontSize="11" 
+                             FontAttributes="Bold"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             HeightRequest="30" 
+                             WidthRequest="30"/>
+
+                            <Button Text="X" 
+                             Clicked="DeleteButton_Clicked" 
+                             Grid.Column="5" 
+                             FontSize="11" 
+                             FontAttributes="Bold"
+                             BackgroundColor="Red" 
+                             TextColor="White" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             HeightRequest="30" 
+                             WidthRequest="30"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage.Content>
 </ContentPage>

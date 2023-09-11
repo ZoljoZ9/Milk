@@ -26,9 +26,9 @@ namespace Milk.Views.add
             Pictures = new ObservableCollection<PMSPicture>
             {
                 new PMSPicture { Source = "apple.png", ImageText = "Poultry", TargetPageType = typeof(PoultryPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Meat", TargetPageType = typeof(RedMeatPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Meat", TargetPageType = typeof(LambPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Meat", TargetPageType = typeof(PorkPage) },
+                new PMSPicture { Source = "pumpkins.png", ImageText = "Beef", TargetPageType = typeof(RedMeatPage) },
+                new PMSPicture { Source = "pumpkins.png", ImageText = "Lamb", TargetPageType = typeof(LambPage) },
+                new PMSPicture { Source = "pumpkins.png", ImageText = "Pork", TargetPageType = typeof(PorkPage) },
                 new PMSPicture { Source = "pumpkins.png", ImageText = "Seafood", TargetPageType = typeof(SeafoodPage) },
 
 
