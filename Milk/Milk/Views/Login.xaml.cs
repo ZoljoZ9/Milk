@@ -11,6 +11,9 @@ namespace Milk
     [DesignTimeVisible(false)]
     public partial class Login : ContentPage
     {
+        private const string AdminUsername = "admin";
+        private const string AdminPassword = "admin";
+
         public Login()
         {
             InitializeComponent();
@@ -22,12 +25,29 @@ namespace Milk
 
             if (users.Count == 0)
             {
+                // If you wish to hard-code an admin for testing
+                if (usr.Text == "admin" && psw.Text == "admin")
+                {
+                    var adminUser = new GroceryUsers
+                    {
+                        username = "admin",
+                        email = "admin@example.com",
+                        password = "admin",
+                        IsAdmin = true
+                    };
+                    App.LoggedInUser = adminUser;
+                    App.Current.MainPage = new MainPage(adminUser);
+                    return;
+                }
+
                 await DisplayAlert("Wrong credentials", "Either Password Or Username Are Wrong", "ok");
             }
             else
             {
                 GroceryUsers loggedInUser = users[0];
                 App.LoggedInUserId = loggedInUser.Id;
+                App.LoggedInUser = loggedInUser;
+
                 System.Diagnostics.Debug.WriteLine($"LoggedInUser after Login: {loggedInUser?.username}");
 
                 // Navigate to the MainPage and pass the logged-in user.
@@ -35,9 +55,13 @@ namespace Milk
             }
         }
 
+
+
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new RegisterPage());
         }
+
+
     }
 }

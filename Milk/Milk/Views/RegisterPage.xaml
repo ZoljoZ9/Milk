@@ -5,15 +5,18 @@
              xmlns:pcview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
     <Grid>
+
+
         <!-- Gradient Background using BoxView -->
         <BoxView>
             <BoxView.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="LightBlue" Offset="0.1" />
-                    <GradientStop Color="MidnightBlue" Offset="1.0" />
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#83fafe" Offset="0.0" />
+                    <GradientStop Color="#d1dcfc" Offset="1.0" />
                 </LinearGradientBrush>
             </BoxView.Background>
         </BoxView>
+
 
         <ScrollView Orientation="Vertical">
             <pcview:PancakeView x:Name="pc">
@@ -34,30 +37,31 @@
                     </Frame>
 
                     <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
-                        <Entry Placeholder="Re-enter a password" x:Name="rsw" IsPassword="True" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+                        <Entry Placeholder="Re-enter a password" x:Name="confirmPsw" IsPassword="True" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
                     </Frame>
-
-                    <Frame Padding="0" CornerRadius="50" HasShadow="True" HeightRequest="50" VerticalOptions="Center">
-                        <Frame.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="#34eb89" Offset="0.1" />
-                                <GradientStop Color="#34bdeb" Offset="1.0" />
-                            </LinearGradientBrush>
-                        </Frame.Background>
-                        <Button Text="Enter" TextColor="White" FontAttributes="Bold" FontSize="Large" BackgroundColor="Transparent" Clicked="ButtonIsClicked"/>
+                    <Frame Padding="0" CornerRadius="50" HasShadow="True" HeightRequest="50" VerticalOptions="Center" BackgroundColor="#030143">
+                        <Button
+                            Text="Enter"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            BackgroundColor="Transparent"
+                            Clicked="ButtonIsClicked"/>
                     </Frame>
 
                     <Label HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Already have an account? " TextColor="Gray"/>
-                                <Span Text="Login" TextColor="Green" FontAttributes="Bold" TextDecorations="Underline"/>
+                                <Span Text="Login" TextColor="#ff7463" FontAttributes="Bold" TextDecorations="Underline"/>
                             </FormattedString>
                         </Label.FormattedText>
                         <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Label.GestureRecognizers>
                     </Label>
+
+
 
                 </StackLayout>
             </pcview:PancakeView>

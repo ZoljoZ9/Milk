@@ -10,16 +10,17 @@
             <StackLayout Spacing="20">
 
                 <!-- Welcome message -->
-
-                    <StackLayout Orientation="Vertical" Spacing="10">
+                <StackLayout Orientation="Vertical" Spacing="10">
                     <Label Text="Goodbye," FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                        <Label Text="{Binding Username}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                
+                    <Label Text="{Binding Username}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
 
-
+                <!-- Your New Paragraph -->
 
                 <Button Text="Logout" Clicked="LogoutClicked" BackgroundColor="#D70040" TextColor="White" />
+
+                <Label Text="As you are probably aware, not all products can be found on the Browse functionability, I wasn't sure how many people would use it oppose to the Manual Add page. If you would like me to add any products in the Browse catagory simply, please send me feedback." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
+
 
             </StackLayout>
         </ScrollView>

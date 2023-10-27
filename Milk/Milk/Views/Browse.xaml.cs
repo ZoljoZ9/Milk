@@ -23,18 +23,15 @@ namespace Milk.Views
                 new Picture { Source = "bananas.png", ImageText = "Fruit & Veg", TargetPageType = typeof(fruitveg) },
                 new Picture { Source = "Bread.png", ImageText = "Bakery", TargetPageType = typeof(BakeryPage) },
                 new Picture { Source = "meat.png", ImageText = "Meat & Seafood", TargetPageType = typeof(pms) },
-                new Picture { Source = "deli.jpg", ImageText = "Deli", TargetPageType = typeof(deli) },
+                new Picture { Source = "deli.jpg", ImageText = "Deli", TargetPageType = typeof(deliPage) },
                 new Picture { Source = "milk1.jpg", ImageText = "Dairy, Eggs & Fridge", TargetPageType = typeof(dairyeggsfridge) },
-                new Picture { Source = "syrup.jpg", ImageText = "Pantry", TargetPageType = typeof(pantry) },
-                new Picture { Source = "Sweets.jpg", ImageText = "Snacks & Confectionary", TargetPageType = typeof(snacksconfectionery) },
+                new Picture { Source = "oil.jpg", ImageText = "Pantry", TargetPageType = typeof(pantry) },
+                new Picture { Source = "confect.jpg", ImageText = "Snacks & Confectionary", TargetPageType = typeof(snacksconfectionery) },
                 new Picture { Source = "icecream.jpg", ImageText = "Frozen", TargetPageType = typeof(freezer) },
                 new Picture { Source = "lemon.jpg", ImageText = "Drinks", TargetPageType = typeof(drinks) },
-                new Picture { Source = "liqour.jpg", ImageText = "Liqour", TargetPageType = typeof(liqour) },
-                new Picture { Source = "health.jpg", ImageText = "Health & Wellness", TargetPageType = typeof(healthwellness) },
                 new Picture { Source = "personal.jpg", ImageText = "Beauty & Personal care", TargetPageType = typeof(beautypersonalcare) },
-                new Picture { Source = "baby.jpg", ImageText = "Baby", TargetPageType = typeof(baby) },
-                new Picture { Source = "cleaning.jpg", ImageText = "Cleaning & Maintenance", TargetPageType = typeof(cleaningmaintenance) },
-                new Picture { Source = "dog.jpg", ImageText = "Pet", TargetPageType = typeof(pet) },
+                new Picture { Source = "cleaning.jpg", ImageText = "Cleaning & Maintenance", TargetPageType = typeof(test) },
+                new Picture { Source = "pet.jpg", ImageText = "Pet", TargetPageType = typeof(pet) },
 
             };
             RowTappedCommand = new Command<Picture>(async (picture) =>

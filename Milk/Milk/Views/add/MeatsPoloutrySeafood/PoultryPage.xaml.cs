@@ -63,6 +63,8 @@ namespace Milk.Views.add.MeatsPoloutrySeafood
             await InitializeRedMeats();
             originalItems = new ObservableCollection<Produce>(redmeats);
             RedMeatListView.ItemsSource = originalItems;
+            Title = "Poultry";
+
         }
 
 
@@ -100,25 +102,30 @@ namespace Milk.Views.add.MeatsPoloutrySeafood
         {
             try
             {
-                var dbContext = new AppDbContext(App.DatabasePath);
-                var loggedInUserId = App.LoggedInUserId;
-
-                var existingRedMeat = await dbContext.GetRedMeatByNameAndUserId(redmeat.Name, loggedInUserId);
-                if (existingRedMeat != null)
+                using (var dbContext = new AppDbContext(App.DatabasePath))
                 {
-                    // Adjust quantity for the existing fruit by either 1 or -1, depending on the "adjustment" parameter
-                    existingRedMeat.Quantity += adjustment;
-                    await dbContext.Database.UpdateAsync(existingRedMeat);
-                    MessagingCenter.Send<object>(this, "UpdateList");
+                    var loggedInUserId = App.LoggedInUserId;
 
-                }
-                else
-                {
-                    // New fruit, so insert it
-                    redmeat.UserId = loggedInUserId;
-                    await dbContext.Database.InsertAsync(redmeat);
-                    MessagingCenter.Send<object>(this, "UpdateList");
+                    var existingRedMeats = await dbContext.GetRedMeatByNameAndUserId(redmeat.Name, loggedInUserId);
+                    if (existingRedMeats != null)
+                    {
+                        existingRedMeats.Quantity += adjustment;
 
+                        // Check if Quantity is zero or less to delete item
+                        if (existingRedMeats.Quantity <= 0)
+                        {
+                            await dbContext.Database.DeleteAsync(existingRedMeats);
+                        }
+                        else
+                        {
+                            await dbContext.Database.UpdateAsync(existingRedMeats);
+                        }
+                    }
+                    else
+                    {
+                        redmeat.UserId = loggedInUserId;
+                        await dbContext.Database.InsertAsync(redmeat);
+                    }
                 }
             }
             catch (Exception ex)

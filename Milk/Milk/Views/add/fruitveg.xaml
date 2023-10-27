@@ -36,7 +36,7 @@
                                 </Image>
 
                                 <!-- Text next to the image -->
-                                <Label Grid.Column="1" Text="{Binding ImageText}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Text="{Binding ImageText}" TextColor="Black" VerticalOptions="Center"/>
 
                                 <!-- Navigation icon (arrow) -->
                                 <Image Grid.Column="2" 

@@ -25,11 +25,11 @@ namespace Milk.Views.add
 
             Pictures = new ObservableCollection<PMSPicture>
             {
-                new PMSPicture { Source = "apple.png", ImageText = "Poultry", TargetPageType = typeof(PoultryPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Beef", TargetPageType = typeof(RedMeatPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Lamb", TargetPageType = typeof(LambPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Pork", TargetPageType = typeof(PorkPage) },
-                new PMSPicture { Source = "pumpkins.png", ImageText = "Seafood", TargetPageType = typeof(SeafoodPage) },
+                new PMSPicture { Source = "poultry.jpg", ImageText = "Poultry", TargetPageType = typeof(PoultryPage) },
+                new PMSPicture { Source = "beef.jpg", ImageText = "Beef", TargetPageType = typeof(RedMeatPage) },
+                new PMSPicture { Source = "lamb.jpg", ImageText = "Lamb", TargetPageType = typeof(LambPage) },
+                new PMSPicture { Source = "pork.jpg", ImageText = "Pork", TargetPageType = typeof(PorkPage) },
+                new PMSPicture { Source = "seafood.jpg", ImageText = "Seafood", TargetPageType = typeof(SeafoodPage) },
 
 
             };
@@ -45,7 +45,7 @@ namespace Milk.Views.add
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Title = "Select your groceries";
+            Title = "Meat & Seafood";
         }
 
         private async void OnImageTapped(object sender, EventArgs e)

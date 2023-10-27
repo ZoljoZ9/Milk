@@ -18,8 +18,8 @@ namespace Milk.Views.add
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SaladPage : ContentPage
     {
-        private List<Produce> salads;
-        private List<Produce> selectedSalads; // To store selected fruits
+        private List<Produce> fruits;
+        private List<Produce> selectedFruits; // To store selected fruits
 
         public int UserId { get; set; }
 
@@ -29,27 +29,27 @@ namespace Milk.Views.add
             InitializeComponent();
 
             // Initialize selectedFruits list
-            selectedSalads = new List<Produce>();
+            selectedFruits = new List<Produce>();
         }
 
 
-        private async Task InitializeSalads()
+        private async Task InitializeFruits()
         {
             var dbContext = new AppDbContext(App.DatabasePath);
             var loggedInUserId = App.LoggedInUserId;
 
-            salads = new List<Produce>
+            fruits = new List<Produce>
             {       
-                new Produce { Name = "Asian Style Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Asian Style Salad", loggedInUserId), ImagePath = "asian.png" },
-                new Produce { Name = "Caesar Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Caesar Salad", loggedInUserId), ImagePath = "caesar.png" },
-                new Produce { Name = "Chicken Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Chicken Salad", loggedInUserId), ImagePath = "chicken.png" },
-                new Produce { Name = "Coleslaw", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Coleslaw", loggedInUserId), ImagePath = "coleslaw.png" },
-                new Produce { Name = "Garden Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Garden Salad", loggedInUserId), ImagePath = "garden.png" },
-                new Produce { Name = "Grain-based Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Grain-based Salad", loggedInUserId), ImagePath = "grain.png" },
-                new Produce { Name = "Greek Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Greek Salad", loggedInUserId), ImagePath = "greek.png" },
-                new Produce { Name = "Pasta Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Pasta Salad", loggedInUserId), ImagePath = "pasta.png" },
-                new Produce { Name = "Roast Vegetable Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Roast Vegetable Salad", loggedInUserId), ImagePath = "roastveg.png" },
-                new Produce { Name = "Seafood Salad", Type = ProduceType.Salad, Quantity = await dbContext.GetSaladQuantityByNameAndUserId("Seafood Salad", loggedInUserId), ImagePath = "seafood.png" }
+                new Produce { Name = "Asian Style Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Asian Style Salad", loggedInUserId), ImagePath = "asian.png" },
+                new Produce { Name = "Caesar Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Caesar Salad", loggedInUserId), ImagePath = "caesar.png" },
+                new Produce { Name = "Chicken Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Chicken Salad", loggedInUserId), ImagePath = "chicken.png" },
+                new Produce { Name = "Coleslaw", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Coleslaw", loggedInUserId), ImagePath = "coleslaw.png" },
+                new Produce { Name = "Garden Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Garden Salad", loggedInUserId), ImagePath = "garden.png" },
+                new Produce { Name = "Grain-based Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Grain-based Salad", loggedInUserId), ImagePath = "grain.png" },
+                new Produce { Name = "Greek Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Greek Salad", loggedInUserId), ImagePath = "greek.png" },
+                new Produce { Name = "Pasta Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Pasta Salad", loggedInUserId), ImagePath = "pasta.png" },
+                new Produce { Name = "Roast Vegetable Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Roast Vegetable Salad", loggedInUserId), ImagePath = "roastveg.png" },
+                new Produce { Name = "Seafood Salad", Type = ProduceType.Fruit, Quantity = await dbContext.GetFruitQuantityByNameAndUserId("Seafood Salad", loggedInUserId), ImagePath = "seafood.png" }
                 // ... Continue for other salads if needed
             };
 
@@ -59,65 +59,72 @@ namespace Milk.Views.add
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await InitializeSalads();
-            originalItems = new ObservableCollection<Produce>(salads);
+            await InitializeFruits();
+            originalItems = new ObservableCollection<Produce>(fruits);
             saladListView.ItemsSource = originalItems;
+            Title = "Salad";
+
         }
 
 
         private async void PlusButton_Clicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
-            var salad = (Produce)button.BindingContext;
+            var fruit = (Produce)button.BindingContext;
 
-            salad.Quantity++;
-            if (!selectedSalads.Contains(salad))
+            fruit.Quantity++;
+            if (!selectedFruits.Contains(fruit))
             {
-                selectedSalads.Add(salad);
+                selectedFruits.Add(fruit);
             }
 
 
             // Update the database
-            await UpdateDatabase(salad, 1);
+            await UpdateDatabase(fruit, 1);
         }
 
         private async void MinusButton_Clicked(object sender, EventArgs e)
         {
             // This is similar to what you have in the fruit page
             var button = (Button)sender;
-            var salad = (Produce)button.BindingContext;
+            var fruit = (Produce)button.BindingContext;
 
-            salad.Quantity--;
+            fruit.Quantity--;
 
-            if (salad.Quantity < 0)
-                salad.Quantity = 0;
+            if (fruit.Quantity < 0)
+                fruit.Quantity = 0;
 
-            await UpdateDatabase(salad, -1);
+            await UpdateDatabase(fruit, -1);
         }
 
-        private async Task UpdateDatabase(Produce salad, int adjustment)
+        private async Task UpdateDatabase(Produce fruit, int adjustment)
         {
             try
             {
-                var dbContext = new AppDbContext(App.DatabasePath);
-                var loggedInUserId = App.LoggedInUserId;
-
-                var existingSalad = await dbContext.GetFruitByNameAndUserId(salad.Name, loggedInUserId);
-                if (existingSalad != null)
+                using (var dbContext = new AppDbContext(App.DatabasePath))
                 {
-                    // Adjust quantity for the existing fruit by either 1 or -1, depending on the "adjustment" parameter
-                    existingSalad.Quantity += adjustment;
-                    await dbContext.Database.UpdateAsync(existingSalad);
-                    MessagingCenter.Send<object>(this, "UpdateList");
+                    var loggedInUserId = App.LoggedInUserId;
 
-                }
-                else
-                {
-                    // New fruit, so insert it
-                    salad.UserId = loggedInUserId;
-                    await dbContext.Database.InsertAsync(salad);
-                    MessagingCenter.Send<object>(this, "UpdateList");
+                    var existingFruit = await dbContext.GetFruitByNameAndUserId(fruit.Name, loggedInUserId);
+                    if (existingFruit != null)
+                    {
+                        existingFruit.Quantity += adjustment;
 
+                        // Check if Quantity is zero or less to delete item
+                        if (existingFruit.Quantity <= 0)
+                        {
+                            await dbContext.Database.DeleteAsync(existingFruit);
+                        }
+                        else
+                        {
+                            await dbContext.Database.UpdateAsync(existingFruit);
+                        }
+                    }
+                    else
+                    {
+                        fruit.UserId = loggedInUserId;
+                        await dbContext.Database.InsertAsync(fruit);
+                    }
                 }
             }
             catch (Exception ex)
@@ -128,27 +135,27 @@ namespace Milk.Views.add
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
-            var salad = (Produce)button.BindingContext;
+            var fruit = (Produce)button.BindingContext;
 
-            if (salad.Quantity > 0)
+            if (fruit.Quantity > 0)
             {
-                salad.Quantity = 0;
+                fruit.Quantity = 0;
                 saladListView.ItemsSource = null;  // Reset the ItemsSource
-                saladListView.ItemsSource = salads;  // Set it back
+                saladListView.ItemsSource = fruits;  // Set it back
 
                 // Remove the fruit from selectedFruits if present
-                if (selectedSalads.Contains(salad))
+                if (selectedFruits.Contains(fruit))
                 {
-                    selectedSalads.Remove(salad);
+                    selectedFruits.Remove(fruit);
                 }
 
                 // Update the database to set quantity to 0 (or delete it, depending on your needs)
                 var dbContext = new AppDbContext(App.DatabasePath);
-                var existingSalad = await dbContext.GetFruitByNameAndUserId(salad.Name, App.LoggedInUserId);
-                if (existingSalad != null)
+                var existingFruit = await dbContext.GetFruitByNameAndUserId(fruit.Name, App.LoggedInUserId);
+                if (existingFruit != null)
                 {
-                    existingSalad.Quantity = 0;
-                    await dbContext.Database.UpdateAsync(existingSalad);
+                    existingFruit.Quantity = 0;
+                    await dbContext.Database.UpdateAsync(existingFruit);
                 }
             }
         }

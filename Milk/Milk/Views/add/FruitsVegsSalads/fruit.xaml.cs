@@ -73,6 +73,8 @@ namespace Milk.Views.add
             await InitializeFruits();
             originalItems = new ObservableCollection<Produce>(fruits);
             fruitListView.ItemsSource = originalItems;
+            Title = "Fruit";
+
         }
 
 
@@ -110,25 +112,30 @@ namespace Milk.Views.add
         {
             try
             {
-                var dbContext = new AppDbContext(App.DatabasePath);
-                var loggedInUserId = App.LoggedInUserId;
-
-                var existingFruit = await dbContext.GetFruitByNameAndUserId(fruit.Name, loggedInUserId);
-                if (existingFruit != null)
+                using (var dbContext = new AppDbContext(App.DatabasePath))
                 {
-                    // Adjust quantity for the existing fruit by either 1 or -1, depending on the "adjustment" parameter
-                    existingFruit.Quantity += adjustment;
-                    await dbContext.Database.UpdateAsync(existingFruit);
-                    MessagingCenter.Send<object>(this, "UpdateList");
+                    var loggedInUserId = App.LoggedInUserId;
 
-                }
-                else
-                {
-                    // New fruit, so insert it
-                    fruit.UserId = loggedInUserId;
-                    await dbContext.Database.InsertAsync(fruit);
-                    MessagingCenter.Send<object>(this, "UpdateList");
+                    var existingFruit = await dbContext.GetFruitByNameAndUserId(fruit.Name, loggedInUserId);
+                    if (existingFruit != null)
+                    {
+                        existingFruit.Quantity += adjustment;
 
+                        // Check if Quantity is zero or less to delete item
+                        if (existingFruit.Quantity <= 0)
+                        {
+                            await dbContext.Database.DeleteAsync(existingFruit);
+                        }
+                        else
+                        {
+                            await dbContext.Database.UpdateAsync(existingFruit);
+                        }
+                    }
+                    else
+                    {
+                        fruit.UserId = loggedInUserId;
+                        await dbContext.Database.InsertAsync(fruit);
+                    }
                 }
             }
             catch (Exception ex)

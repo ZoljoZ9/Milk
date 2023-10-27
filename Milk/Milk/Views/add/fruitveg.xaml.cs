@@ -22,8 +22,8 @@ namespace Milk.Views.add
             Pictures = new ObservableCollection<FruitVegPicture>
             {
                 new FruitVegPicture { Source = "apple.png", ImageText = "Fruit", TargetPageType = typeof(fruit) },
-                new FruitVegPicture { Source = "pumpkins.png", ImageText = "Vegetables", TargetPageType = typeof(vegetablePage) },
-                new FruitVegPicture { Source = "pumpkins.png", ImageText = "Salads", TargetPageType = typeof(SaladPage) },
+                new FruitVegPicture { Source = "broccoli.png", ImageText = "Vegetables", TargetPageType = typeof(vegetablePage) },
+                new FruitVegPicture { Source = "salad.png", ImageText = "Salads", TargetPageType = typeof(SaladPage) },
 
 
             };
@@ -39,7 +39,7 @@ namespace Milk.Views.add
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Title = "Select your groceries";
+            Title = "Fruit & Veg";
         }
 
         private async void OnImageTapped(object sender, EventArgs e)

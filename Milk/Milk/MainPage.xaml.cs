@@ -1,7 +1,7 @@
 ﻿using Milk.Models;
 using Milk.Views;
+using Milk.Views.add;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using Microsoft.VisualBasic;
 
 namespace Milk
 {
@@ -32,7 +33,7 @@ namespace Milk
             listPage.BackgroundColor = Color.White;
 
             browsePage = new Browse();
-            browseNavigationPage = new Xamarin.Forms.NavigationPage(browsePage) // Initialize the navigation page
+            browseNavigationPage = new Xamarin.Forms.NavigationPage(browsePage)
             {
                 Title = "Browse",
                 IconImageSource = "browse.png",
@@ -40,13 +41,15 @@ namespace Milk
                 BarBackgroundColor = Color.FromHex("#D70040")
             };
 
+            // ...
+
             var manualPage = new Xamarin.Forms.NavigationPage(new ManualAdd())
             {
                 Title = "Add",
                 IconImageSource = "page2.png"
             };
             manualPage.BarBackgroundColor = Color.FromHex("#D70040");
-            manualPage.BackgroundColor = Color.FromHex("#CCFF00");
+            manualPage.BackgroundColor = Color.White;
 
             var personalizePage = new Xamarin.Forms.NavigationPage(new Personalize())
             {
@@ -54,7 +57,7 @@ namespace Milk
                 IconImageSource = "page4.png"
             };
             personalizePage.BarBackgroundColor = Color.FromHex("#D70040");
-            personalizePage.BackgroundColor = Color.FromHex("#FF1493");
+            personalizePage.BackgroundColor = Color.White;
 
             this.BarBackgroundColor = Color.FromHex("#D70040");
 
@@ -64,15 +67,24 @@ namespace Milk
             Children.Add(personalizePage);
 
             // Handle the OnCurrentPageChanged event for the tabbed page
-            this.CurrentPageChanged += OnCurrentPageChanged;
+            CurrentPageChanged += MainPage_CurrentPageChanged;
         }
 
-        private void OnCurrentPageChanged(object sender, EventArgs e)
+        private async void OnCurrentPageChanged()
         {
-            if (CurrentPage == browseNavigationPage)
+            if (CurrentPage == browseNavigationPage && browseNavigationPage.Navigation.NavigationStack.Count > 1)
             {
-                // Reset the navigation stack of the Browse page when switching to the Browse tab
-                browsePage.Navigation.PopToRootAsync();
+                Console.WriteLine("CurrentPageChanged event triggered.");
+                await browseNavigationPage.PopToRootAsync();
+            }
+        }
+
+        private async void MainPage_CurrentPageChanged(object sender, EventArgs e)
+        {
+            if (CurrentPage == browseNavigationPage && browseNavigationPage.Navigation.NavigationStack.Count > 1)
+            {
+                Console.WriteLine("CurrentPageChanged event triggered.");
+                await browseNavigationPage.PopToRootAsync();
             }
         }
 

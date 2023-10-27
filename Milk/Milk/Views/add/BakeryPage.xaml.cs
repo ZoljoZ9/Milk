@@ -41,25 +41,25 @@ namespace Milk.Views.add
 
             bakeries = new List<Produce>
                 {
-                    new Produce { Name = "Bagels", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Bagels", loggedInUserId), ImagePath = "bagels.png" },
-                    new Produce { Name = "Baguette", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Baguette", loggedInUserId), ImagePath = "baguette.png" },
-                    new Produce { Name = "Bread Rolls", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Bread Rolls", loggedInUserId), ImagePath = "breadrolls.png" },
-                    new Produce { Name = "Brown Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Brown Bread", loggedInUserId), ImagePath = "brownbread.png" },
-                    new Produce { Name = "Croissants", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Croissants", loggedInUserId), ImagePath = "croissants.png" },
-                    new Produce { Name = "Danish Pastries", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Danish Pastries", loggedInUserId), ImagePath = "danish.png" },
-                    new Produce { Name = "Doughnuts", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Doughnuts", loggedInUserId), ImagePath = "doughnuts.png" },
-                    new Produce { Name = "Flatbread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Flatbread", loggedInUserId), ImagePath = "flatbread.png" },
-                    new Produce { Name = "Focaccia", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Focaccia", loggedInUserId), ImagePath = "focaccia.png" },
-                    new Produce { Name = "Muffins", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Muffins", loggedInUserId), ImagePath = "muffins.png" },
-                    new Produce { Name = "Pies", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Pies", loggedInUserId), ImagePath = "pies.png" },
-                    new Produce { Name = "Pretzels", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Pretzels", loggedInUserId), ImagePath = "pretzels.png" },
-                    new Produce { Name = "Rye Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Rye Bread", loggedInUserId), ImagePath = "ryebread.png" },
-                    new Produce { Name = "Scones", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Scones", loggedInUserId), ImagePath = "scones.png" },
-                    new Produce { Name = "Sourdough Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Sourdough Bread", loggedInUserId), ImagePath = "sourdough.png" },
-                    new Produce { Name = "Sweet Buns", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Sweet Buns", loggedInUserId), ImagePath = "sweetbuns.png" },
-                    new Produce { Name = "Tarts", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Tarts", loggedInUserId), ImagePath = "tarts.png" },
-                    new Produce { Name = "White Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("White Bread", loggedInUserId), ImagePath = "whitebread.png" },
-                    new Produce { Name = "Whole Wheat Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Whole Wheat Bread", loggedInUserId), ImagePath = "wholewheatbread.png" }
+                    new Produce { Name = "Bagels", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Bagels", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Baguette", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Baguette", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Bread Rolls", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Bread Rolls", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Brown Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Brown Bread", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Croissants", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Croissants", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Danish Pastries", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Danish Pastries", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Doughnuts", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Doughnuts", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Flatbread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Flatbread", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Focaccia", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Focaccia", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Muffins", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Muffins", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Pies", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Pies", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Pretzels", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Pretzels", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Rye Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Rye Bread", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Scones", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Scones", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Sourdough Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Sourdough Bread", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Sweet Buns", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Sweet Buns", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Tarts", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Tarts", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "White Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("White Bread", loggedInUserId), ImagePath = "bread.png" },
+                    new Produce { Name = "Whole Wheat Bread", Type = ProduceType.Bakery, Quantity = await dbContext.GetBakeriesQuantityByNameAndUserId("Whole Wheat Bread", loggedInUserId), ImagePath = "bread.png" }
 
                     // ... Continue for other fruits
                 };
@@ -71,7 +71,8 @@ namespace Milk.Views.add
             base.OnAppearing();
             await InitializeBakeries();
             originalItems = new ObservableCollection<Produce>(bakeries);
-            BakeryPageListView.ItemsSource = originalItems;
+            fruitListView.ItemsSource = originalItems;
+            Title = "Bakery";
         }
 
 
@@ -115,21 +116,30 @@ namespace Milk.Views.add
         {
             try
             {
-                var dbContext = new AppDbContext(App.DatabasePath);
-                var loggedInUserId = App.LoggedInUserId;
+                using (var dbContext = new AppDbContext(App.DatabasePath))
+                {
+                    var loggedInUserId = App.LoggedInUserId;
 
-                var existingBakery = await dbContext.GetBakeriesByNameAndUserId(bakery.Name, loggedInUserId);
-                if (existingBakery != null)
-                {
-                    // Adjust quantity for the existing fruit by either 1 or -1, depending on the "adjustment" parameter
-                    existingBakery.Quantity += adjustment;
-                    await dbContext.Database.UpdateAsync(existingBakery);
-                }
-                else
-                {
-                    // New fruit, so insert it
-                    bakery.UserId = loggedInUserId;
-                    await dbContext.Database.InsertAsync(bakery);
+                    var existingBakery = await dbContext.GetBakeriesByNameAndUserId(bakery.Name, loggedInUserId);
+                    if (existingBakery != null)
+                    {
+                        existingBakery.Quantity += adjustment;
+
+                        // Check if Quantity is zero or less to delete item
+                        if (existingBakery.Quantity <= 0)
+                        {
+                            await dbContext.Database.DeleteAsync(existingBakery);
+                        }
+                        else
+                        {
+                            await dbContext.Database.UpdateAsync(existingBakery);
+                        }
+                    }
+                    else
+                    {
+                        bakery.UserId = loggedInUserId;
+                        await dbContext.Database.InsertAsync(bakery);
+                    }
                 }
             }
             catch (Exception ex)
@@ -137,6 +147,7 @@ namespace Milk.Views.add
                 await DisplayAlert("Error", $"Failed to save fruit. Error: {ex.Message}", "OK");
             }
         }
+
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
@@ -145,8 +156,8 @@ namespace Milk.Views.add
             if (bakery.Quantity > 0)
             {
                 bakery.Quantity = 0;
-                BakeryPageListView.ItemsSource = null;  // Reset the ItemsSource
-                BakeryPageListView.ItemsSource = bakeries;  // Set it back
+                fruitListView.ItemsSource = null;  // Reset the ItemsSource
+                fruitListView.ItemsSource = bakeries;  // Set it back
 
                 // Remove the fruit from selectedFruits if present
                 if (selectedBakeries.Contains(bakery))
@@ -173,11 +184,11 @@ namespace Milk.Views.add
 
             if (string.IsNullOrWhiteSpace(searchTerm))
             {
-                BakeryPageListView.ItemsSource = originalItems;
+                fruitListView.ItemsSource = originalItems;
             }
             else
             {
-                BakeryPageListView.ItemsSource = originalItems.Where(item => item.Name.ToLower().Contains(searchTerm.ToLower())).ToList();
+                fruitListView.ItemsSource = originalItems.Where(item => item.Name.ToLower().Contains(searchTerm.ToLower())).ToList();
             }
         }
 

@@ -28,12 +28,20 @@ public class Produce : INotifyPropertyChanged
     public enum ProduceType
     {
         Fruit,
-        Vegetable,
         Bakery,
-        Salad,
-        RedMeat
+        RedMeat,
+        Deli,
+        Cheese,
+        Baking,
+        Chip,
+        Frozen,
+        Drink,
+        Personal,
+        Cleaning,
+        Pet
         // ... other types if necessary
     }
+
 
 
 

@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Milk.Views.add.pms"
-             x:Name="PMSPage" 
-             Title="Browse for groceries">
+             x:Name="PMSPage">
     <ContentPage.Content>
         <Grid Padding="20,0">
             <CollectionView ItemsSource="{Binding Pictures}" 
@@ -36,7 +35,7 @@
                                 </Image>
 
                                 <!-- Text next to the image -->
-                                <Label Grid.Column="1" Text="{Binding ImageText}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Text="{Binding ImageText}" TextColor="Black" VerticalOptions="Center"/>
 
                                 <!-- Navigation icon (arrow) -->
                                 <Image Grid.Column="2" 
