@@ -505,6 +505,14 @@ namespace Milk.Data
             return await GetAllPetForUser(userId);
         }
 
+        public async Task DeleteUserById(int userId)
+        {
+            var user = await _dbConnection.Table<GroceryUsers>().Where(u => u.Id == userId).FirstOrDefaultAsync();
+            if (user != null)
+            {
+                await _dbConnection.DeleteAsync(user);
+            }
+        }
 
         public async Task InsertOrReplacePet(List<Produce> pets)
         {

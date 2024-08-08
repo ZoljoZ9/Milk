@@ -1,6 +1,8 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:Milk.Views" xmlns:viewmodels="clr-namespace:Milk.ViewModels" x:DataType="viewmodels:PersonalizeViewModel"
+             xmlns:views="clr-namespace:Milk.Views"
+             xmlns:viewmodels="clr-namespace:Milk.ViewModels"
+             x:DataType="viewmodels:PersonalizeViewModel"
              x:Class="Milk.Views.Personalize"
              Padding="20"
              Title="Logout">
@@ -15,12 +17,13 @@
                     <Label Text="{Binding Username}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
 
-                <!-- Your New Paragraph -->
-
+                <!-- Logout button -->
                 <Button Text="Logout" Clicked="LogoutClicked" BackgroundColor="#D70040" TextColor="White" />
 
-                <Label Text="As you are probably aware, not all products can be found on the Browse functionability, I wasn't sure how many people would use it oppose to the Manual Add page. If you would like me to add any products in the Browse catagory simply, please send me feedback." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
+                <!-- Delete Profile button -->
+                <Button Text="Delete Profile" Clicked="DeleteProfileClicked" BackgroundColor="#D70040" TextColor="White" />
 
+                <Label Text="As you are probably aware, not all products can be found on the 'Browse' screen. I wasn't sure how many people would use it oppose to the 'Manual Add' option. If you would like me to add any products in the 'Browse' options, please send me feedback." TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
 
             </StackLayout>
         </ScrollView>

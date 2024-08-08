@@ -54,13 +54,14 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Users\matthewz\source\repos\Milk\my-release-key.jks</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Users\matth\source\repos\Milk\my-release-key.jks</AndroidSigningKeyStore>
     <AndroidSigningStorePass>Tesla!2!2</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>my-key-alias</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Tesla!2!2</AndroidSigningKeyPass>
     <AndroidPackageFormat>aab</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <MandroidI18n />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -79,7 +80,7 @@
       <Version>1.8.116</Version>
     </PackageReference>
     <PackageReference Include="SQLitePCLRaw.bundle_green">
-      <Version>2.1.6</Version>
+      <Version>2.1.8</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>28.0.0.3</Version>
@@ -87,8 +88,8 @@
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
       <Version>28.0.0.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>2.3.0.759</Version>
     </PackageReference>

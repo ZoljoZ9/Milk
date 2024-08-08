@@ -59,6 +59,33 @@ namespace Milk.Views
             }
         }
 
+        private async void DeleteProfileClicked(object sender, EventArgs e)
+        {
+            bool confirm = await DisplayAlert("Confirm", "Are you sure you want to delete your profile?", "Yes", "No");
+            if (confirm)
+            {
+                try
+                {
+                    // Assuming App.LoggedInUser contains the current user's details
+                    int userId = App.LoggedInUser.Id;
+
+                    // Delete the user from the database
+                    await App.DbContext.DeleteUserById(userId);
+
+                    // Clear the logged-in user
+                    App.LoggedInUser = null;
+
+                    await DisplayAlert("Deleted", "Your profile has been deleted", "OK");
+
+                    // Navigate back to login or home page
+                    await Navigation.PushModalAsync(new Login());
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", "An error occurred: " + ex.Message, "OK");
+                }
+            }
+        }
 
         private async void SendFeedbackEmail()
         {

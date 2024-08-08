@@ -40,7 +40,7 @@ namespace Milk
                     return;
                 }
 
-                await DisplayAlert("Wrong credentials", "Either Password Or Username Are Wrong", "ok");
+                await DisplayAlert("User doesn't exist or wrong credentials", "Either Password Or Username Are Wrong", "ok");
             }
             else
             {
