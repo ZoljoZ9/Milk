@@ -1,6 +1,6 @@
-This app is written in Xamarin Forms.
+This app is a grocery list app on the MAUI.NET framework.
 
-Ensure the IDE support Xamarin Forms.
+Ensure the IDE support MAUI.NET.
 
 When downloading this app, ensure you have the SQLite NuGet package install on the IDE.
 
