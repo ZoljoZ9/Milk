@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Views.RegisterPage">
+
+    <Grid>
+
+
+        <!-- Gradient Background using BoxView -->
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#83fafe" Offset="0.0" />
+                    <GradientStop Color="#d1dcfc" Offset="1.0" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+
+        <ScrollView Orientation="Vertical">
+                <StackLayout Padding="40" Spacing="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+
+                    <Label Text="Register below" x:Name="label" TextColor="White"/>
+
+                    <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                        <Entry Placeholder="Enter a username" x:Name="usr" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+                    </Frame>
+
+                    <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                        <Entry Placeholder="Enter your email" x:Name="eml" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+                    </Frame>
+
+                    <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                        <Entry Placeholder="Enter a password" x:Name="psw" IsPassword="True" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+                    </Frame>
+
+                    <Frame Padding="0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                        <Entry Placeholder="Re-enter a password" x:Name="confirmPsw" IsPassword="True" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent"/>
+                    </Frame>
+                    <Frame Padding="0" CornerRadius="50" HasShadow="True" HeightRequest="50" VerticalOptions="Center" BackgroundColor="#030143">
+                        <Button
+                            Text="Enter"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            BackgroundColor="Transparent"
+                            Clicked="ButtonIsClicked"/>
+                    </Frame>
+
+                    <Label HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Already have an account? " TextColor="Gray"/>
+                                <Span Text="Login" TextColor="#ff7463" FontAttributes="Bold" TextDecorations="Underline"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+
+
+                </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

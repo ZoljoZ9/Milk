@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Views.add.Drinking.CordialsJuiceIcedTeasPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <!-- Search Bar -->
+            <Frame BackgroundColor="#f8f8f8" CornerRadius="10" Padding="5" HasShadow="True">
+                <SearchBar x:Name="searchBar" 
+               Placeholder="Search for cordials, juice, and iced teas..." 
+               TextColor="Black" 
+               PlaceholderColor="#a9a9a9"
+               BackgroundColor="Transparent"
+               TextChanged="OnSearchBarTextChanged"/>
+            </Frame>
+
+
+            <!-- List View -->
+            <ListView x:Name="fruitListView" RowHeight="70" Margin="0,10,0,0" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5" CornerRadius="10" HasShadow="True" Margin="2,5">
+                                <Grid ColumnSpacing="5">
+                                    <!-- Grid Columns -->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Name -->
+                                    <Label Text="{Binding Name}" 
+                                   Grid.Column="0" 
+                                   TextColor="Black" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   FontSize="Small"
+                                   Padding="10"
+                                   Margin="5,5,20,5"/>
+
+                                    <!-- Quantity Section -->
+                                    <StackLayout Orientation="Horizontal" 
+                                         Grid.Column="1" 
+                                         HorizontalOptions="End" 
+                                         Spacing="5">
+                                        <Button Text="-"
+                                        Clicked="MinusButton_Clicked" 
+                                        TextColor="Black" 
+                                        BackgroundColor="Red" 
+                                            CornerRadius="10"
+                                        FontSize="Medium"
+
+                                            Padding="10"
+
+                                            />
+
+                                        <!-- Quantity Entry -->
+                                        <Frame CornerRadius="10" 
+                                       Padding="0" 
+                                       HasShadow="False" 
+                                       BorderColor="#E5E5E5" 
+                                       BackgroundColor="White" 
+                                       WidthRequest="40">
+                                            <Entry Text="{Binding Quantity}" 
+                                           TextColor="Black" 
+                                           HorizontalTextAlignment="Center" 
+                                           Keyboard="Numeric" 
+                                           FontSize="Small"
+                                           BackgroundColor="Transparent"/>
+                                        </Frame>
+
+                                        <Button Text="+" 
+                                        Clicked="PlusButton_Clicked" 
+                                        TextColor="Black" 
+                                        BackgroundColor="Green"  
+                                                CornerRadius="10"
+                                        FontSize="Medium"
+                                                Padding="10"/>
+
+                                    </StackLayout>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

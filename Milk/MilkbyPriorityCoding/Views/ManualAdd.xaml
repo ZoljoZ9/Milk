@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Views.ManualAdd"
+             BackgroundColor="#F9F9F9"
+             Visual="Material">
+    <ScrollView>
+    <StackLayout Padding="30" Spacing="30">
+        <Frame CornerRadius="15" Padding="15" HasShadow="True" BackgroundColor="White">
+            <StackLayout Spacing="20">
+                <!-- Separate Frame for itemNameEntry -->
+                <Frame CornerRadius="15" Padding="5" HasShadow="True" BorderColor="#E5E5E5" BackgroundColor="White">
+                        <Entry x:Name="itemNameEntry" TextColor="Black" Placeholder="Enter item name">
+
+                            <Entry.PlaceholderColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS" Value="Black"></On>
+                                <On Platform="Android" Value="#000000"></On>
+                            </OnPlatform>
+                            </Entry.PlaceholderColor>
+                        </Entry>
+                    </Frame>
+                <!-- ... other parts of your XAML ... -->
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="15">
+                    <Button Text="-" Clicked="MinusButton_Clicked" TextColor="Black" WidthRequest="40" BackgroundColor="#F1F1F1" CornerRadius="10"/>
+
+                    <!-- Wrap Entry inside Frame for rounded corners -->
+                    <Frame CornerRadius="10" Padding="0" HasShadow="False" BorderColor="#E5E5E5" BackgroundColor="White" WidthRequest="60">
+                        <Entry x:Name="_quantityEntry" TextColor="Black" HorizontalTextAlignment="Center" Keyboard="Numeric" BackgroundColor="Transparent"/>
+                    </Frame>
+
+                    <Button Text="+" Clicked="PlusButton_Clicked" TextColor="Black" WidthRequest="40" BackgroundColor="#F1F1F1" CornerRadius="10"/>
+                </StackLayout>
+
+                <!-- Wrap Picker inside Frame for rounded corners -->
+                <Frame CornerRadius="10" Padding="0" HasShadow="False" BorderColor="#E5E5E5" BackgroundColor="White">
+                        <Picker x:Name="categoryPicker" TextColor="Black" TitleColor="Black" Title="Select a Category" BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- ... other parts of your XAML ... -->
+
+
+                <Button Text="Add to list" Clicked="OnUpdateButtonClicked" BackgroundColor="#D70040" TextColor="White" CornerRadius="15"/>
+             
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+        </ScrollView>
+</ContentPage>

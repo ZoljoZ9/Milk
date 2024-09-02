@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Milk.Views.add.pantry"
+             x:Name="PantryPage">
+
+    <ContentPage.Content>
+        <Grid Padding="20,0">
+            <!-- CollectionView displaying a list of pictures -->
+            <CollectionView ItemsSource="{Binding Pictures}" 
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedPicture, Mode=TwoWay}"
+                            BackgroundColor="White">
+
+                <!-- ItemTemplate defines the layout of each item in the CollectionView -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" 
+                               Padding="0" 
+                               HasShadow="True" 
+                               CornerRadius="0" 
+                               Margin="5,10">
+
+                            <Grid ColumnDefinitions="*,Auto,Auto">
+
+                                <!-- Handle item tap -->
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RowTappedCommand, 
+                                                                           Source={x:Reference PantryPage}}" 
+                                                          CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+
+                                <!-- Text displayed in the first column -->
+                                <Label Grid.Column="0" 
+                                       Text="{Binding ImageText}" 
+                                       TextColor="Black" 
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start" 
+                                       Margin="10,0" />
+
+                                <!-- Image displayed in the second column -->
+                                <Image Grid.Column="1" 
+                                       Source="{Binding Source}" 
+                                       Aspect="AspectFit" 
+                                       WidthRequest="100" 
+                                       HeightRequest="100"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="10,0" />
+
+                                <!-- Navigation icon displayed in the third column -->
+                                <Image Grid.Column="2" 
+                                       Source="arrow2.png" 
+                                       Aspect="AspectFit" 
+                                       WidthRequest="20" 
+                                       HeightRequest="20"
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="End" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

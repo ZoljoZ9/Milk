@@ -60,7 +60,12 @@ namespace Milk.Droid
             StartActivity(new Intent(Application.Context, typeof(MainActivity)));
         }
 
-        public override void OnBackPressed() { }
+        public override void OnBackPressed()
+        {
+            // Use OnBackPressedDispatcher to handle back press
+            OnBackPressedDispatcher.OnBackPressed();
+        }
+
 
     }
 }

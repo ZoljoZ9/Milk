@@ -1,0 +1,62 @@
+﻿using Milk.Data;
+using Milk.Models;
+using Microsoft.Maui.Controls.Xaml;
+using System;
+using Milk.Views.add;
+using Milk.ViewModels;
+using static Milk.ViewModels.ListViewModel;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+
+namespace Milk.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class List : ContentPage
+    {
+        private ListViewModel ViewModel => BindingContext as ListViewModel;
+
+        public List()
+        {
+            InitializeComponent();
+            BindingContext = new ListViewModel(App.LoggedInUserId);
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var viewModel = BindingContext as ListViewModel;
+            if (viewModel == null)
+            {
+                System.Diagnostics.Debug.WriteLine("ViewModel is null");
+                return;
+            }
+
+            await viewModel.LoadSelectedItems(App.LoggedInUserId);
+        }
+
+
+
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            MessagingCenter.Unsubscribe<object>(this, "UpdateList");
+        }
+
+        private void DeleteProduceButton_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                var produce = button.BindingContext as Produce;
+                if (produce != null)
+                {
+                    ViewModel.DeleteProduce(produce);
+                }
+            }
+        }
+    }
+}
